@@ -14,13 +14,13 @@ size_t Str_getLength(const char strArray[]) {
     return uLength;
 }
 
-char Str_copy(char copiedArray[], const char strArray[]) {
+size_t Str_copy(char copiedArray[], const char strArray[]) {
     assert(copiedArray != NULL && strArray != NULL);
-    int index = 0;
+    size_t index = 0;
     while ((copiedArray[index] = strArray[index]) != '\0') {
         index++;
     }
-    return copiedArray;
+    return index;
 }
 
 char Str_concat(char tobeConcat[], const char strArray[]) {
