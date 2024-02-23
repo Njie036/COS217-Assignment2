@@ -1,37 +1,30 @@
-/*The stra.c file*/
+/*This handles string functions using pointers*/
 
 #include "str.h"
 #include <assert.h>
 
 size_t Str_getLength(const char *pstr) {
+    const char *pcEnd;
     assert(pstr != NULL);
-
-    size_t length = 0;
-    while (pstr[length] != '\0') {
-        length++;
+    pcEnd = pstr;
+    while (pcEnd != '\0') {
+        pcEnd++;
     }
-    return length;
+    return (size_t)(pcEnd - pstr);
 }
 
-void Str_copy(char *tobeCopied, const char *pstr) {
+char Str_copy(char *tobeCopied, const char *pstr) {
+    assert(tobeCopied != NULL && pstr != NULL);
+    const char *
 
 }
 
 char *Str_concat(char *tobeConcat, const char *pstr) {
     assert(tobeConcat != NULL && pstr != NULL);
 
-    while(*tobeConcat != '\0') {
-        tobeConcat++;
-    }
-    while (*pstr != '\0') {
-        *tobeConcat == *pstr;
-        tobeConcat++;
-        pstr++;
-    }
-    *tobeConcat = '\0';
-    return tobeConcat;
 }
 
 int Str_compare(const char *charToCompare, const char *pstr) {
-    return 0;
+    assert(charToCompare != NULL && pstr != NULL);
+
 }

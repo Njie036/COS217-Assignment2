@@ -1,7 +1,6 @@
-/*The stra.c file*/
+/*This string file handles string functions using arrays*/
 
 #include "str.h"
-#include <stddef.h>
 #include <assert.h>
 
 size_t Str_getLength(const char strArray[]) {
@@ -15,8 +14,10 @@ size_t Str_getLength(const char strArray[]) {
 }
 
 char *Str_copy(char copiedArray[], const char strArray[]) {
-    assert(copiedArray != NULL && strArray != NULL);
-    size_t index = 0;
+    size_t index = 0; /* Declarations should happen before any action. Example: assert*/
+    assert(copiedArray != NULL);
+    assert(strArray != NULL);
+
     while ((copiedArray[index] = strArray[index]) != '\0') {
         index++;
     }
@@ -24,26 +25,41 @@ char *Str_copy(char copiedArray[], const char strArray[]) {
 }
 
 char *Str_concat(char tobeConcat[], const char strArray[]) {
-    assert(tobeConcat != NULL && strArray != NULL);
-    size_t lentobeConcat = Str_getLength(tobeConcat);
+    size_t lentobeConcat;
     size_t index = 0;
+
+    assert(tobeConcat != NULL);
+    assert(strArray != NULL);
+
+    lentobeConcat = Str_getLength(tobeConcat);
+
     while (strArray[index] != '\0') {
         tobeConcat[lentobeConcat + index] = strArray[index];
         index++;
     }
+    tobeConcat[lentobeConcat + index] = strArray[index];
     return tobeConcat;
 
 }
 
 int Str_compare(const char strToCompare[], const char strArray[]) {
-    assert(strToCompare != NULL && strArray != NULL);
     size_t index = 0;
-    while(strToCompare[index] == strArray[index]) {
-        if (strToCompare[index] == '\0' || strArray[index] == '\0') {
-            return 0;
+
+    assert(strToCompare != NULL);
+    assert(strArray != NULL);
+
+    while(strToCompare[index] != '\0' || strArray[index] != '\0') {
+        if (strToCompare[index] > strArray[index]) {
+            return 1;
         }
-        index++; 
+        else if (strToCompare[index] < strArray[index]) {
+            return -1;
+        }
+        else index++; 
     }
-    return 1;
+    return 0;
 }
 
+const char *Str_search(const char chrToSearch[], const char otherChar[]) {
+    return NULL;
+}
