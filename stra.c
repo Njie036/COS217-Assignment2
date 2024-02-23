@@ -24,7 +24,14 @@ char *Str_copy(char copiedArray[], const char strArray[]) {
 }
 
 char *Str_concat(char tobeConcat[], const char strArray[]) {
-    return '0';
+    asssert(tobeConcat != NULL && strArray != NULL);
+    size_t lentobeConcat = Str_getLength(tobeConcat);
+    size_t index = 0;
+    while (strArray[index] != '\0') {
+        tobeConcat[lentobeConcat + index] = strArray[index];
+        index++;
+    }
+    return (int)(tobeConcat[index] - strArray[index]);
 
 }
 
