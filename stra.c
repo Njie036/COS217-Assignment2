@@ -23,11 +23,12 @@ char Str_copy(char copiedArray[], const char strArray[]) {
     return copiedArray;
 }
 
-char Str_concat(char *tobeConcat, const char *pstr) {
+char Str_concat(char tobeConcat[], const char strArray[]) {
+    return '0';
 
 }
 
-int Str_compare(const char *charToCompare, const char *pstr) {
+int Str_compare(const char charToCompare[], const char strArray[]) {
     return 0;
 }
 
