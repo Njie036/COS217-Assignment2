@@ -13,7 +13,7 @@ char *Str_copy(char copiedArray[], const char strArray[]);
 char *Str_concat(char tobeConcat[], const char strArray[]);
 
 /*Handles the string compare function*/
-int Str_compare(const char charToCompare[], const char strArray[]);
+int Str_compare(const char strToCompare[], const char strArray[]);
 
 /*Handles string search function*/
 /*const char *Str_search(const char *chrToSearch, const char *otherChar);*/
