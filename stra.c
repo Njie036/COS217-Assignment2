@@ -16,7 +16,7 @@ size_t Str_getLength(const char strArray[]) {
 
 char Str_copy(char copiedArray[], const char strArray[]) {
     assert(copiedArray != NULL && strArray != NULL);
-    size_t index = 0;
+    int index = 0;
     while ((copiedArray[index] = strArray[index]) != '\0') {
         index++;
     }
