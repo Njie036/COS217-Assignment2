@@ -60,6 +60,6 @@ int Str_compare(const char strToCompare[], const char strArray[]) {
     return 0;
 }
 
-const char *Str_search(const char chrToSearch[], const char otherChar[]) {
+const char *Str_search(const char [], const char otherChar[]) {
     return NULL;
 }

@@ -7,24 +7,45 @@ size_t Str_getLength(const char *pstr) {
     const char *pcEnd;
     assert(pstr != NULL);
     pcEnd = pstr;
-    while (pcEnd != '\0') {
+    while (*pcEnd != '\0') {
         pcEnd++;
     }
     return (size_t)(pcEnd - pstr);
 }
 
-char Str_copy(char *tobeCopied, const char *pstr) {
-    assert(tobeCopied != NULL && pstr != NULL);
-    const char *
+char *Str_copy(char *destOfCopy, const char *pstr) {
+    char *refDeststr;
+    
+    assert(destOfCopy != NULL);
+    assert(pstr != NULL);
+    
+    refDeststr = destOfCopy;
 
+    while ((*destOfCopy = *pstr) != '\0') {
+        destOfCopy++;
+        pstr++;
+    }
+    return refDeststr;
 }
 
-char *Str_concat(char *tobeConcat, const char *pstr) {
-    assert(tobeConcat != NULL && pstr != NULL);
+char *Str_concat(char *destOfConcat, const char *pstr) {
+    char *refDeststr;
+    assert(destOfConcat != NULL);
+    assert(pstr != NULL);
 
+    refDeststr = destOfConcat;
+    destOfConcat += Str_getLength(destOfConcat);
+
+    destOfConcat = Str_copy(destOfConcat, pstr);
+    return refDeststr;
 }
 
 int Str_compare(const char *charToCompare, const char *pstr) {
-    assert(charToCompare != NULL && pstr != NULL);
+    assert(charToCompare != NULL);
+    assert(pstr != NULL);
+    return 0;
+}
 
+const char *Str_search(const char *haystack, const char *needle) {
+    return NULL;
 }
