@@ -46,10 +46,10 @@ int Str_compare(const char *toCompare, const char *pstr) {
     
     while(*toCompare != '\0' && *pstr != '\0') {
         if (*pstr > *toCompare) {
-            return 1;
+            return -1;
         }
         else if (*pstr < *toCompare) {
-            return -1;
+            return 1;
         }
         else {
             pstr++;
