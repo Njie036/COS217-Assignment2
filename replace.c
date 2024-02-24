@@ -21,13 +21,13 @@
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
-    size_t replacements = 0; // Initialize replacements count
+    size_t replacements = 0; 
    
     assert(pcLine != NULL);
     assert(pcFrom != NULL);
     assert(pcTo != NULL);
 
-    // If pcFrom is an empty string, write pcLine to stdout and return 0
+   
     if (Str_compare(pcFrom, "") == 0) {
         fprintf(stdout, "%s", pcLine);
         return 0;
@@ -37,23 +37,19 @@ static size_t replaceAndWrite(const char *pcLine,
         size_t fromLen = Str_getLength(pcFrom);
         size_t toLen = Str_getLength(pcTo);
 
-        // Iterate through pcLine
         while (*pointer != '\0') {
-            // If pcFrom is found at current position
             if (Str_search(pointer, pcFrom) == pointer) {
-                // Replace pcFrom with pcTo
                 fputs(pcTo, stdout);
-                pointer += fromLen; // Move pointer past pcFrom
-                replacements++; // Increment replacements count
+                pointer += fromLen; 
+                replacements++; 
             } else {
-                // Write current character to stdout
                 fputc(*pointer, stdout);
                 pointer++;
             }
         }
     }
 
-    return replacements; // Return total number of replacements made
+    return replacements; 
 }
 
 
