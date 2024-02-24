@@ -20,6 +20,19 @@ static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
    /* Insert your code here. */
+    size_t replacements = 0;
+   
+   assert(pcLine != NULL);
+   assert(pcFrom != NULL);
+   assert(pcTo != NULL);
+
+   if (Str_compare(pcFrom, "") == 0) {
+      fprintf(stdout, pcLine);
+      return 0;
+   }
+   else {
+      return replacements;
+   }
 }
 
 /*--------------------------------------------------------------------*/
