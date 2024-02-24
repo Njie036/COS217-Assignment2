@@ -27,23 +27,12 @@ static size_t replaceAndWrite(const char *pcLine,
    assert(pcTo != NULL);
 
    if (Str_compare(pcFrom, "") == 0) {
-      fprintf(stdout, "%s", pcLine);
+      fprintf(stdout, pcLine);
       return 0;
    }
    else {
-      const char *pointer = pcLine;
-      size_t lenPcFrom = Str_getLength(pcFrom);
-
-      while ((pointer = Str_search(pointer, pcFrom) != NULL)) {
-         replacements++;
-         fwrite(pcLine, 1, pointer - pcLine, stdout);
-         fputs(pcTo, stdout);
-         pointer += lenPcFrom;
-         pcLine = pointer;
-      }
-      fputs(pcLine, stdout);
+      return replacements;
    }
-   return replacements;
 }
 
 /*--------------------------------------------------------------------*/
