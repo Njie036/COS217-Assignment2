@@ -62,7 +62,7 @@ int Str_compare(const char *toCompare, const char *pstr) {
 char *Str_search(const char *haystack, const char *needle) {
     const char *refHaystack;
     const char *refNeedle;
-    char *trackHaystack;
+    const char *trackHaystack;
 
     assert(haystack != NULL);
     assert(needle != NULL);
