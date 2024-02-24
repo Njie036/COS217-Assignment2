@@ -3,6 +3,8 @@
 /* Author: Ndongo Njie                                                */
 /*--------------------------------------------------------------------*/
 
+#include <string.h> /*If I dont get str_search working, get rid of it otherwise*/
+
 #include "str.h"
 #include <stdio.h>
 #include <assert.h>
@@ -57,6 +59,8 @@ int main(int argc, char *argv[])
 
    while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL)
       /* Insert your code here. */
+      uReplaceCount += RreplaceAndWrite(acLine, pcFrom, pcTo);
+
 
    fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
    return 0;

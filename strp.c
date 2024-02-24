@@ -40,9 +40,24 @@ char *Str_concat(char *destOfConcat, const char *pstr) {
     return refDeststr;
 }
 
-int Str_compare(const char *charToCompare, const char *pstr) {
-    assert(charToCompare != NULL);
+int Str_compare(const char *toCompare, const char *pstr) {
+    char *ptrCompare;
+    assert(toCompare != NULL);
     assert(pstr != NULL);
+    
+    ptrCompare = pstr;
+    while(*toCompare != '\0' || *pstr != '\0') {
+        if (*pstr > *ptrCompare) {
+            return 1;
+        }
+        else if (*pstr < *ptrCompare) {
+            return -1;
+        }
+        else {
+            pstr++;
+            ptrCompare++;
+        }
+    }
     return 0;
 }
 
