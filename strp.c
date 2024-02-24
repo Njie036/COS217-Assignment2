@@ -60,9 +60,9 @@ int Str_compare(const char *toCompare, const char *pstr) {
 }
 
 char *Str_search(const char *haystack, const char *needle) {
-    const char *refHaystack;
-    const char *refNeedle;
-    const char *trackHaystack;
+    char *refHaystack;
+    char *refNeedle;
+    char *trackHaystack;
 
     assert(haystack != NULL);
     assert(needle != NULL);
@@ -85,42 +85,9 @@ char *Str_search(const char *haystack, const char *needle) {
         if (*refNeedle == '\0') {
             return (char *)refHaystack;  
         }
-
         refHaystack++; 
     }
-
     return NULL; 
 }
-
-
-/* 
-char *Str_search(const char *haystack, const char *needle) {
-    const char *refHaystack;
-    const char *refNeedle;
-    const char *trackHaystack;
-
-    assert(haystack != NULL);
-    assert(needle != NULL);
-
-    refHaystack = haystack;
-    refNeedle = needle;
-
-    while (*refHaystack != '\0') {
-        trackHaystack = refHaystack;
-        refNeedle = needle;
-
-        while (*refNeedle != '\0' && *refHaystack == *refNeedle) {
-            refHaystack++;
-            refNeedle++;
-        }
-
-        if (*refNeedle == '\0') {
-            return (char *)trackHaystack;
-        }
-        refHaystack = trackHaystack + 1;
-    }
-    return NULL;
-}
-*/
 
 
