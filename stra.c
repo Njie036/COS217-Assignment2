@@ -60,6 +60,31 @@ int Str_compare(const char strToCompare[], const char strArray[]) {
     return 0;
 }
 
-const char *Str_search(const char [], const char otherChar[]) {
-    return NULL;
+char *Str_search(const char haystack[], const char needle[]) {
+    size_t indexHay = 0;
+    size_t trackHay = 0;
+    size_t indexNeedle = 0;
+
+    assert(haystack != NULL);
+    assert(needle != NULL);
+
+    while (haystack[indexHay] != '\0' && needle[indexNeedle] != '\0') {
+        if(haystack[indexHay] == needle[indexNeedle]) {
+            if (indexNeedle == 0) {
+                trackHay = indexHay;
+
+            }
+            indexHay++;
+            indexNeedle++;
+        }
+        else {
+            indexHay = trackHay + 1;
+            indexNeedle = 0;
+
+        }
+    }
+    if (needle[indexNeedle] == '\0') {
+        return (char *)(haystack + trackHay);
+    }
+    else return NULL;
 }

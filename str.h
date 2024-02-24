@@ -17,6 +17,6 @@ char *Str_concat(char tobeConcat[], const char strArray[]);
 int Str_compare(const char strToCompare[], const char strArray[]);
 
 /*Handles string search function*/
-const char *Str_search(const char chrToSearch[], const char otherChar[]);
+char *Str_search(const char haystack[], const char needle[]);
 
 #endif 
