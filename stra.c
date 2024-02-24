@@ -72,7 +72,6 @@ char *Str_search(const char haystack[], const char needle[]) {
         if(haystack[indexHay] == needle[indexNeedle]) {
             if (indexNeedle == 0) {
                 trackHay = indexHay;
-
             }
             indexHay++;
             indexNeedle++;
@@ -80,7 +79,6 @@ char *Str_search(const char haystack[], const char needle[]) {
         else {
             indexHay = trackHay + 1;
             indexNeedle = 0;
-
         }
     }
     if (needle[indexNeedle] == '\0') {

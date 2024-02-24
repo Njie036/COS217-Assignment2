@@ -23,6 +23,13 @@ static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
    /* Insert your code here. */
+   if (pcFrom = '\0') {
+      fprintf(stdout, pcLine);
+      return 0;
+   }
+   else {
+      
+   }
 }
 
 /*--------------------------------------------------------------------*/
