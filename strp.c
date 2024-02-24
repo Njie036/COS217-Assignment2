@@ -41,7 +41,7 @@ char *Str_concat(char *destOfConcat, const char *pstr) {
 }
 
 int Str_compare(const char *toCompare, const char *pstr) {
-    char *ptrCompare;
+    const char *ptrCompare;
     assert(toCompare != NULL);
     assert(pstr != NULL);
     
