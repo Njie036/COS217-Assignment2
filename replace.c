@@ -1,10 +1,7 @@
 /*--------------------------------------------------------------------*/
 /* replace.c                                                          */
-/* Author: Ndongo Njie                                                */
+/* Author:                                                 */
 /*--------------------------------------------------------------------*/
-
-#include <string.h> /*If I dont get str_search working, get rid of it otherwise*/
-
 #include "str.h"
 #include <stdio.h>
 #include <assert.h>
@@ -23,12 +20,27 @@ static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
    /* Insert your code here. */
-   if (pcFrom = '\0') {
-      fprintf(stdout, pcLine);
+   size_t replacements;
+   
+   assert(pcLine != NULL);
+   assert(pcFrom != NULL);
+   assert(pcTo != NULL);
+
+   if (Str_compare(pcFrom, "")) {
+      fprintf(stdout, "%s", pcLine);
       return 0;
    }
    else {
-      
+      const char *pointer = pcLine;
+      size_t lenPcFrom = Str_getLength(pcFrom);
+      size_t lenPcTo = Str_getLength(pcTo);
+
+      while ((pointer = Str_search(pointer, pcFrom) != NULL)) {
+         replacements++;
+         pointer += lenPcFrom;
+         pcLine = pointer;
+      }
+   return replacements;
    }
 }
 
@@ -67,7 +79,6 @@ int main(int argc, char *argv[])
    while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL)
       /* Insert your code here. */
       uReplaceCount += RreplaceAndWrite(acLine, pcFrom, pcTo);
-
 
    fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
    return 0;
