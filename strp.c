@@ -44,7 +44,6 @@ int Str_compare(const char *toCompare, const char *pstr) {
     assert(toCompare != NULL);
     assert(pstr != NULL);
     
-    toCompare = pstr;
     while(*toCompare != '\0' || *pstr != '\0') {
         if (*pstr > *toCompare) {
             return 1;
