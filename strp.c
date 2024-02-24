@@ -70,7 +70,7 @@ char *Str_search(const char *haystack, const char *needle) {
     refHaystack = haystack;
     refNeedle = needle;
 
-    while (*refHaystack != '\0') {
+    while (*refHaystack != '\0' || *refNeedle != '\0') {
         trackHaystack = refHaystack;
         refNeedle = needle;
 
@@ -82,7 +82,6 @@ char *Str_search(const char *haystack, const char *needle) {
         if (*refNeedle == '\0') {
             return (char *)trackHaystack;
         }
-
         refHaystack = trackHaystack + 1;
     }
     return NULL;
