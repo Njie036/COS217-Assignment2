@@ -35,7 +35,6 @@ static size_t replaceAndWrite(const char *pcLine,
     else {
         const char *pointer = pcLine;
         size_t fromLen = Str_getLength(pcFrom);
-        size_t toLen = Str_getLength(pcTo);
 
         while (*pointer != '\0') {
             if (Str_search(pointer, pcFrom) == pointer) {
