@@ -75,7 +75,7 @@ char *Str_search(const char *haystack, const char *needle) {
             trackHaystack = refHaystack;
             refHaystack++;
             refNeedle++;
-        return trackHaystack;
+        return &trackHaystack;
         }
         else {
             refHaystack++;
