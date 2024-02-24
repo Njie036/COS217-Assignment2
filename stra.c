@@ -84,7 +84,7 @@ char *Str_search(const char haystack[], const char needle[]) {
         }
     }
     if (needle[indexNeedle] == '\0') {
-        return (char *)(haystack + trackHay);
+        return (haystack + trackHay);
     }
     else return NULL;
 }
