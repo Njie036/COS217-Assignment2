@@ -41,21 +41,20 @@ char *Str_concat(char *destOfConcat, const char *pstr) {
 }
 
 int Str_compare(const char *toCompare, const char *pstr) {
-    const char *ptrCompare;
     assert(toCompare != NULL);
     assert(pstr != NULL);
     
-    ptrCompare = pstr;
+    toCompare = pstr;
     while(*toCompare != '\0' || *pstr != '\0') {
-        if (*pstr > *ptrCompare) {
+        if (*pstr > *toCompare) {
             return 1;
         }
-        else if (*pstr < *ptrCompare) {
+        else if (*pstr < *toCompare) {
             return -1;
         }
         else {
             pstr++;
-            ptrCompare++;
+            toCompare++;
         }
     }
     return 0;
