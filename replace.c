@@ -20,28 +20,30 @@ static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
    /* Insert your code here. */
-   size_t replacements;
+   size_t replacements = 0;
    
    assert(pcLine != NULL);
    assert(pcFrom != NULL);
    assert(pcTo != NULL);
 
-   if (Str_compare(pcFrom, "")) {
+   if (Str_compare(pcFrom, "") == 0) {
       fprintf(stdout, "%s", pcLine);
       return 0;
    }
    else {
       const char *pointer = pcLine;
       size_t lenPcFrom = Str_getLength(pcFrom);
-      size_t lenPcTo = Str_getLength(pcTo);
 
       while ((pointer = Str_search(pointer, pcFrom) != NULL)) {
          replacements++;
+         fwrite(pcLine, 1, pointer - pcLine, stdout);
+         fputs(pcTo, stdout);
          pointer += lenPcFrom;
          pcLine = pointer;
       }
-   return replacements;
+      fputs(pcLine, stdout);
    }
+   return replacements;
 }
 
 /*--------------------------------------------------------------------*/
