@@ -69,6 +69,39 @@ char *Str_search(const char haystack[], const char needle[]) {
     assert(needle != NULL);
 
     while (haystack[indexHay] != '\0' && needle[indexNeedle] != '\0') {
+        if (haystack[indexHay] == needle[indexNeedle]) {
+            if (indexNeedle == 0) {
+                trackHay = indexHay;  // Update trackHay only if it's the start of a potential match
+            }
+            indexHay++;
+            indexNeedle++;
+        } else {
+            indexHay = trackHay + 1;  // Move indexHay to the next position after the last potential match
+            trackHay = indexHay;      // Update trackHay to the new position
+            indexNeedle = 0;          // Reset indexNeedle to restart matching from the beginning of the needle
+        }
+    }
+
+    if (needle[indexNeedle] == '\0') {
+        return (char *)&haystack[trackHay];  // Return pointer to the start of the matched substring
+    } else {
+        return NULL;  // Return NULL if the entire needle was not found
+    }
+}
+
+
+
+/* 
+
+char *Str_search(const char haystack[], const char needle[]) {
+    size_t indexHay = 0;
+    size_t trackHay = 0;
+    size_t indexNeedle = 0;
+
+    assert(haystack != NULL);
+    assert(needle != NULL);
+
+    while (haystack[indexHay] != '\0' && needle[indexNeedle] != '\0') {
         if(haystack[indexHay] == needle[indexNeedle]) {
             if (indexNeedle == 0) {
                 trackHay = indexHay;
@@ -86,3 +119,5 @@ char *Str_search(const char haystack[], const char needle[]) {
     }
     else return NULL;
 }
+
+*/
