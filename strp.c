@@ -67,7 +67,6 @@ char *Str_search(const char *haystack, const char *needle) {
     assert(haystack != NULL);
     assert(needle != NULL);
 
-    // If the needle is an empty string, return the haystack pointer
     if (*needle == '\0') {
         return (char *)haystack;
     }
@@ -78,21 +77,19 @@ char *Str_search(const char *haystack, const char *needle) {
         trackHaystack = refHaystack;
         refNeedle = needle;
 
-        // Check for substring match
         while (*refNeedle != '\0' && *trackHaystack == *refNeedle) {
             trackHaystack++;
             refNeedle++;
         }
 
-        // Check if the entire needle is found
         if (*refNeedle == '\0') {
-            return (char *)refHaystack;  // Return pointer to the start of the match
+            return (char *)refHaystack;  
         }
 
-        refHaystack++;  // Move to the next character in haystack
+        refHaystack++; 
     }
 
-    return NULL;  // No match found
+    return NULL; 
 }
 
 
