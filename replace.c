@@ -16,24 +16,46 @@
    assumptions about the maximum number of replacements or the
    maximum number of characters in strings pcLine, pcFrom, or pcTo. */
 
+
+
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
-   /* Insert your code here. */
-    size_t replacements = 0;
+    size_t replacements = 0; // Initialize replacements count
    
-   assert(pcLine != NULL);
-   assert(pcFrom != NULL);
-   assert(pcTo != NULL);
+    assert(pcLine != NULL);
+    assert(pcFrom != NULL);
+    assert(pcTo != NULL);
 
-   if (Str_compare(pcFrom, "") == 0) {
-      fprintf(stdout, pcLine);
-      return 0;
-   }
-   else {
-      return replacements;
-   }
+    // If pcFrom is an empty string, write pcLine to stdout and return 0
+    if (Str_compare(pcFrom, "") == 0) {
+        fprintf(stdout, "%s", pcLine);
+        return 0;
+    }
+    else {
+        const char *pointer = pcLine;
+        size_t fromLen = Str_getLength(pcFrom);
+        size_t toLen = Str_getLength(pcTo);
+
+        // Iterate through pcLine
+        while (*pointer != '\0') {
+            // If pcFrom is found at current position
+            if (Str_search(pointer, pcFrom) == pointer) {
+                // Replace pcFrom with pcTo
+                fputs(pcTo, stdout);
+                pointer += fromLen; // Move pointer past pcFrom
+                replacements++; // Increment replacements count
+            } else {
+                // Write current character to stdout
+                fputc(*pointer, stdout);
+                pointer++;
+            }
+        }
+    }
+
+    return replacements; // Return total number of replacements made
 }
+
 
 /*--------------------------------------------------------------------*/
 
@@ -74,3 +96,30 @@ int main(int argc, char *argv[])
    fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
    return 0;
 }
+
+
+
+
+
+
+/*
+
+static size_t replaceAndWrite(const char *pcLine,
+                              const char *pcFrom, const char *pcTo)
+{
+
+    size_t replacements = 0;
+   
+   assert(pcLine != NULL);
+   assert(pcFrom != NULL);
+   assert(pcTo != NULL);
+
+   if (Str_compare(pcFrom, "") == 0) {
+      fprintf(stdout, pcLine);
+      return 0;
+   }
+   else {
+      return replacements;
+   }
+}
+*/
