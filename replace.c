@@ -21,7 +21,6 @@
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
-    const char *pointer;
     size_t replacements = 0; 
    
     assert(pcLine != NULL);
@@ -34,12 +33,12 @@ static size_t replaceAndWrite(const char *pcLine,
         return 0;
     }
     else {
-        pointer = pcLine;
+        const char *pointer = pcLine;
         size_t fromLen = Str_getLength(pcFrom);
 
         while (*pointer != '\0') {
             if (Str_search(pointer, pcFrom) == pointer) {
-                fprintf(stdout, pcTo);
+                fputs(pcTo, stdout);
                 pointer += fromLen; 
                 replacements++; 
             } else {
