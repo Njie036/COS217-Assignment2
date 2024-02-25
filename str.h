@@ -1,3 +1,5 @@
+/*The file that defines the functions used to manipulate strings. */
+
 #ifndef STRA_INCLUDED
 #define STRA_INCLUDED
 

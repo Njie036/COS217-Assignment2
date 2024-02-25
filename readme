@@ -64,6 +64,8 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
+None
+
 
 
 ------------------------------------------------------------------------
@@ -72,6 +74,16 @@ disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
+armlab02:~/COS217-Assignment2$ critTer stra.c
+
+Checking stra.c
+
+   str.h: line 1: high priority: 
+   A file should begin with a comment.
+
+I agree with this warning because every file should begin with a comment that
+tells the reader what the program is all about. I adressed it and the warning
+disappeared. 
 
 
 ------------------------------------------------------------------------
