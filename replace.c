@@ -1,6 +1,6 @@
 /*--------------------------------------------------------------------*/
 /* replace.c                                                          */
-/* Author:                                                 */
+/* Author: Ndongo Njie                                                */
 /*--------------------------------------------------------------------*/
 #include "str.h"
 #include <stdio.h>
@@ -17,10 +17,10 @@
    maximum number of characters in strings pcLine, pcFrom, or pcTo. */
 
 
-
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
+    const char *pointer;
     size_t replacements = 0; 
    
     assert(pcLine != NULL);
@@ -33,24 +33,22 @@ static size_t replaceAndWrite(const char *pcLine,
         return 0;
     }
     else {
-        const char *pointer = pcLine;
+        pointer = pcLine;
         size_t fromLen = Str_getLength(pcFrom);
 
         while (*pointer != '\0') {
             if (Str_search(pointer, pcFrom) == pointer) {
-                fputs(pcTo, stdout);
+                fprintf(stdout, pcTo);
                 pointer += fromLen; 
                 replacements++; 
             } else {
-                fputc(*pointer, stdout);
+                fprintf(stdout, *pointer);
                 pointer++;
             }
         }
     }
-
     return replacements; 
 }
-
 
 /*--------------------------------------------------------------------*/
 
@@ -91,30 +89,3 @@ int main(int argc, char *argv[])
    fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
    return 0;
 }
-
-
-
-
-
-
-/*
-
-static size_t replaceAndWrite(const char *pcLine,
-                              const char *pcFrom, const char *pcTo)
-{
-
-    size_t replacements = 0;
-   
-   assert(pcLine != NULL);
-   assert(pcFrom != NULL);
-   assert(pcTo != NULL);
-
-   if (Str_compare(pcFrom, "") == 0) {
-      fprintf(stdout, pcLine);
-      return 0;
-   }
-   else {
-      return replacements;
-   }
-}
-*/
