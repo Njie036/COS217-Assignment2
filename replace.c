@@ -38,7 +38,7 @@ static size_t replaceAndWrite(const char *pcLine,
 
         while (*pointer != '\0') {
             if (Str_search(pointer, pcFrom) == pointer) {
-                fprintf(pcTo, stdout);
+                fputs(pcTo, stdout);
                 pointer += fromLen; 
                 replacements++; 
             } else {
