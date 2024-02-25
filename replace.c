@@ -17,6 +17,7 @@
    maximum number of characters in strings pcLine, pcFrom, or pcTo. */
 
 
+
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
@@ -42,13 +43,15 @@ static size_t replaceAndWrite(const char *pcLine,
                 pointer += fromLen; 
                 replacements++; 
             } else {
-                fprintf(stdout, *pointer);
+                fputc(*pointer, stdout);
                 pointer++;
             }
         }
     }
+
     return replacements; 
 }
+
 
 /*--------------------------------------------------------------------*/
 
@@ -89,3 +92,30 @@ int main(int argc, char *argv[])
    fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
    return 0;
 }
+
+
+
+
+
+
+/*
+
+static size_t replaceAndWrite(const char *pcLine,
+                              const char *pcFrom, const char *pcTo)
+{
+
+    size_t replacements = 0;
+   
+   assert(pcLine != NULL);
+   assert(pcFrom != NULL);
+   assert(pcTo != NULL);
+
+   if (Str_compare(pcFrom, "") == 0) {
+      fprintf(stdout, pcLine);
+      return 0;
+   }
+   else {
+      return replacements;
+   }
+}
+*/
