@@ -42,7 +42,7 @@ static size_t replaceAndWrite(const char *pcLine,
                 pointer += fromLen; 
                 replacements++; 
             } else {
-                fprintf(stdout, "%s", *pointer);
+                fprintf(stdout, *pointer);
                 pointer++;
             }
         }
