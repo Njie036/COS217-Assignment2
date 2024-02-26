@@ -1,4 +1,4 @@
-/*This handles string functions using pointers*/
+/*This handles string functions using pointers */
 
 #include "str.h"
 #include <assert.h>
@@ -70,9 +70,7 @@ char *Str_search(const char *haystack, const char *needle) {
     if (*needle == '\0') {
         return (char *)haystack;
     }
-
     refHaystack = haystack;
-
     while (*refHaystack != '\0') {
         trackHaystack = refHaystack;
         refNeedle = needle;
@@ -81,13 +79,10 @@ char *Str_search(const char *haystack, const char *needle) {
             trackHaystack++;
             refNeedle++;
         }
-
         if (*refNeedle == '\0') {
             return (char *)refHaystack;  
         }
-
         refHaystack++; 
     }
-
     return NULL; 
 }

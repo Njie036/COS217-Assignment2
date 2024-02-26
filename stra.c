@@ -1,4 +1,4 @@
-/*This string file handles string functions using arrays*/
+/*This string file handles string functions using arrays */
 
 #include "str.h"
 #include <assert.h>
