@@ -146,8 +146,16 @@ What warnings does critTer generate on replace.c, and what are your
 disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
+armlab02:~/COS217-Assignment2$ critTer replace.c
 
-None
+Checking replace.c
+
+   replace.c: line 41: low priority: 
+   This area is deeply nested at level 4, consider refactoring
+
+I was trying to resolove this warning but it makes the code look so complicated
+that I was unable to understand where a block starts or end. The way it looks 
+makes me better understand the flow of each block.
 
 
 ------------------------------------------------------------------------
