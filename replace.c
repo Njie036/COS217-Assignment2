@@ -26,7 +26,6 @@ static size_t replaceAndWrite(const char *pcLine,
     assert(pcLine != NULL);
     assert(pcFrom != NULL);
     assert(pcTo != NULL);
-
     /*This is a special case of pcFrom being an empty string. */
     if (Str_compare(pcFrom, "") == 0) {
         fprintf(stdout, "%s", pcLine); 
@@ -36,7 +35,6 @@ static size_t replaceAndWrite(const char *pcLine,
         const char *pointer = pcLine;
         const char *pointerToFound;
         size_t fromLen = Str_getLength(pcFrom);
-
         while (*pointer != '\0') {
             pointerToFound = Str_search(pointer, pcFrom);
             if (pointerToFound != NULL) {
@@ -48,9 +46,11 @@ static size_t replaceAndWrite(const char *pcLine,
                 pointer += fromLen; 
                 replacements++; 
             } 
+
             /*Else there is nothing more to find. Print out the rest of the line. */
             else {
                 printf("%s", pointer);
+                return replacements;
             }
         }
     }
