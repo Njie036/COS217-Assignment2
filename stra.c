@@ -14,7 +14,9 @@ size_t Str_getLength(const char strArray[]) {
 }
 
 char *Str_copy(char copiedArray[], const char strArray[]) {
-    size_t index = 0; /* Declarations should happen before any action. Example: assert*/
+    size_t index = 0; /* Note to self: Declarations should happen 
+    before any action. Example: assert*/
+    
     assert(copiedArray != NULL);
     assert(strArray != NULL);
 
@@ -39,7 +41,6 @@ char *Str_concat(char tobeConcat[], const char strArray[]) {
     }
     tobeConcat[lentobeConcat + index] = strArray[index];
     return tobeConcat;
-
 }
 
 int Str_compare(const char strToCompare[], const char strArray[]) {

@@ -5,17 +5,17 @@
 
 #include <stddef.h> 
 
-/*Handles the get length function. Takes strArray array of characters
+/* Handles the get length function. Takes strArray array of characters
 and returns the length of the string */
 size_t Str_getLength(const char strArray[]);
 
-/*Handles the string copy function. Takes two arguments, copies 
-strArray to copiedArray and returns a pointer to copiedArray */
+/* Handles the string copy function. Takes two arguments, copies from
+strArray to copiedArray and returns a pointer that points to copiedArray */
 char *Str_copy(char copiedArray[], const char strArray[]);
 
 /*Handles string concatenate function. Takes two arguments, concatenates
 the content of strArray to the end of tobeConcat and returns the pointer 
-to tobeConcat */
+that points to tobeConcat */
 char *Str_concat(char tobeConcat[], const char strArray[]);
 
 /*Handles the string compare function. Takes two arguments and compares 

@@ -21,7 +21,7 @@
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
-    size_t replacements = 0; 
+    size_t replacements = 0; /* Number of replacements made */
    
     assert(pcLine != NULL);
     assert(pcFrom != NULL);
@@ -29,7 +29,7 @@ static size_t replaceAndWrite(const char *pcLine,
 
    
     if (Str_compare(pcFrom, "") == 0) {
-        fprintf(stdout, "%s", pcLine);
+        fprintf(stdout, "%s", pcLine); 
         return 0;
     }
     else {
@@ -47,7 +47,6 @@ static size_t replaceAndWrite(const char *pcLine,
             }
         }
     }
-
     return replacements; 
 }
 
