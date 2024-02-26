@@ -32,14 +32,13 @@ static size_t replaceAndWrite(const char *pcLine,
         fprintf(stdout, "%s", pcLine); 
         return 0;
     }
-    else {
-        const char *pointer = pcLine;
-        const char *pointerToFound;
-        size_t fromLen = Str_getLength(pcFrom);
+    const char *pointer = pcLine;
+    const char *pointerToFound;
+    size_t fromLen = Str_getLength(pcFrom);
 
-        while (*pointer != '\0') {
-            pointerToFound = Str_search(pointer, pcFrom);
-            if (pointerToFound != NULL) {
+    while (*pointer != '\0') {
+        pointerToFound = Str_search(pointer, pcFrom);
+        if (pointerToFound != NULL) {
             while (pointerToFound != pointer) {
                 putchar(*pointer);
                 pointer++;   
@@ -49,11 +48,10 @@ static size_t replaceAndWrite(const char *pcLine,
             replacements++; 
             } 
 
-            /*Else there is nothing more to find. Print out the rest of the line. */
-            else {
-                printf("%s", pointer);
-                return replacements;
-            }
+        /*Else there is nothing more to find. Print out the rest of the line. */
+        else {
+            printf("%s", pointer);
+            return replacements;
         }
     }
     return replacements; 
