@@ -48,7 +48,7 @@ static size_t replaceAndWrite(const char *pcLine,
             pointer += fromLen; 
             replacements++; 
             } 
-            
+
             /*Else there is nothing more to find. Print out the rest of the line. */
             else {
                 printf("%s", pointer);
