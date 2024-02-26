@@ -129,7 +129,8 @@ Checking strp.c
 
 I disagree with these warnings because I am using both arays and pointers to implement the same functions.
 I used the array parameters instead of those of the pointers. For that reason,I can only use one of the two
-in my str.h file. 
+in my str.h file. I think it makes more sense to give the stra.c file array names since I am dealing with arrays
+and give strp.c pointer names since I am dealing with pointers.
 ------------------------------------------------------------------------
 What warnings does splint generate on replace.c, and what are your
 disagreements with them? Copy the splint warnings here, and express your
