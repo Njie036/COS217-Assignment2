@@ -40,13 +40,13 @@ static size_t replaceAndWrite(const char *pcLine,
         while (*pointer != '\0') {
             pointerToFound = Str_search(pointer, pcFrom);
             if (pointerToFound != NULL) {
-                while (pointerToFound != pointer) {
-                    putchar(*pointer);
-                    pointer++;   
-                }
-                printf("%s", pcTo);
-                pointer += fromLen; 
-                replacements++; 
+            while (pointerToFound != pointer) {
+                putchar(*pointer);
+                pointer++;   
+            }
+            printf("%s", pcTo);
+            pointer += fromLen; 
+            replacements++; 
             } 
             
             /*Else there is nothing more to find. Print out the rest of the line. */
